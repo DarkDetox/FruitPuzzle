@@ -331,9 +331,15 @@ Contributions are **welcome**! Feel free to:
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+**© 2025 DarkDetox. All Rights Reserved.**
 
-Copyright (c) 2025 DarkDetox
+This project is **proprietary and confidential**. Unauthorized copying, modification, 
+distribution, or use of this software is strictly prohibited without explicit written 
+permission from the author.
+
+See the [LICENSE](LICENSE) file for complete terms.
+
+For licensing inquiries: darkdetox05@gmail.com
 
 
 ---
