@@ -1,0 +1,26 @@
+# Dependabot configuration for Fruit Puzzle
+# Automatically checks for dependency updates and creates pull requests
+
+version: 2
+
+updates:
+  # Monitor GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Kolkata"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "automated"
+    commit-message:
+      prefix: "⬆️ chore"
+      include: "scope"
+    reviewers:
+      - "DarkDetox"
+    assignees:
+      - "DarkDetox"
+    open-pull-requests-limit: 5
