@@ -8,27 +8,27 @@ A beautiful Match-3 and 2048 merge puzzle game with 36 themes, inventory system,
 <img src="https://img.shields.io/badge/Fruit%20Puzzle-Match%203%20%26%202048-ff6b6b?style=for-the-badge&logo=game&logoColor=white" alt="Fruit Puzzle">
 
 [![PWA Ready](https://img.shields.io/badge/PWA-Ready-4CAF50?style=for-the-badge&logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
-[![Play Now](https://img.shields.io/badge/Play-Now-FF4081?style=for-the-badge&logo=googlechrome&logoColor=white)](https://darkdetox.github.io/fruitpuzzle/)
+[![Play Now](https://img.shields.io/badge/Play-Now-FF4081?style=for-the-badge&logo=googlechrome&logoColor=white)](https://darkdetox.github.io/FruitPuzzle/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-![Deploy](https://github.com/DarkDetox/fruitpuzzle/actions/workflows/deploy.yml/badge.svg)
+![Deploy](https://github.com/DarkDetox/FruitPuzzle/actions/workflows/deploy.yml/badge.svg)
 
 ### 🎮 A stunning Match-3 and 2048 merge puzzle game with glassmorphism UI, 36 themes, and PWA support!
 
 <br>
 
-<a href="https://darkdetox.github.io/fruitpuzzle/">
+<a href="https://darkdetox.github.io/FruitPuzzle/">
   <img src="https://img.shields.io/badge/🎮_PLAY_NOW_🎮-4CAF50?style=for-the-badge&labelColor=000000" alt="Play Now" height="50">
 </a>
 
 <br><br>
 
-[![GitHub Stars](https://img.shields.io/github/stars/DarkDetox/fruitpuzzle?style=social)](https://github.com/DarkDetox/fruitpuzzle)
-[![GitHub Forks](https://img.shields.io/github/forks/DarkDetox/fruitpuzzle?style=social)](https://github.com/DarkDetox/fruitpuzzle/fork)
-[![GitHub Issues](https://img.shields.io/github/issues/DarkDetox/fruitpuzzle)](https://github.com/DarkDetox/fruitpuzzle/issues)
-[![GitHub License](https://img.shields.io/github/license/DarkDetox/fruitpuzzle)](https://github.com/DarkDetox/fruitpuzzle/blob/main/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/DarkDetox/FruitPuzzle?style=social)](https://github.com/DarkDetox/FruitPuzzle)
+[![GitHub Forks](https://img.shields.io/github/forks/DarkDetox/FruitPuzzle?style=social)](https://github.com/DarkDetox/FruitPuzzle/fork)
+[![GitHub Issues](https://img.shields.io/github/issues/DarkDetox/fruitpuzzle)](https://github.com/DarkDetox/FruitPuzzle/issues)
+[![GitHub License](https://img.shields.io/github/license/DarkDetox/FruitPuzzle)](https://github.com/DarkDetox/FruitPuzzle/blob/main/LICENSE)
 
 </div>
 
@@ -204,7 +204,7 @@ Service Worker -  LocalStorage -  Progressive Web App
 
 ### 🎮 Play Online
 
-**[Click here to play now!](https://darkdetox.github.io/fruitpuzzle/)**
+**[Click here to play now!](https://darkdetox.github.io/FruitPuzzle/)**
 
 </div>
 
@@ -212,7 +212,7 @@ Service Worker -  LocalStorage -  Progressive Web App
 
 **1️⃣ Clone the repository**
 
-git clone https://github.com/DarkDetox/fruitpuzzle.git
+git clone https://github.com/DarkDetox/FruitPuzzle.git
 
 
 **2️⃣ Navigate to project folder**
@@ -241,7 +241,7 @@ Then visit: **http://localhost:8000**
 <tr>
 <td>
 <h4>Step 1</h4>
-Visit <a href="https://darkdetox.github.io/fruitpuzzle/">https://darkdetox.github.io/fruitpuzzle/</a>
+Visit <a href="https://darkdetox.github.io/FruitPuzzle/">https://darkdetox.github.io/FruitPuzzle/</a>
 </td>
 </tr>
 <tr>
@@ -357,7 +357,7 @@ Copyright (c) 2025 DarkDetox
 
 **If you like this project, give it a ⭐ on GitHub!**
 
-[![Star on GitHub](https://img.shields.io/github/stars/DarkDetox/fruitpuzzle?style=social)](https://github.com/DarkDetox/fruitpuzzle)
+[![Star on GitHub](https://img.shields.io/github/stars/DarkDetox/FruitPuzzle?style=social)](https://github.com/DarkDetox/FruitPuzzle)
 
 </div>
 
@@ -378,11 +378,11 @@ Copyright (c) 2025 DarkDetox
 
 ### 🍎 Made with ❤️ and 🍓 by DarkDetox
 
-**[🎮 Play Now](https://darkdetox.github.io/fruitpuzzle/)** | **[⭐ Star This Repo](https://github.com/DarkDetox/fruitpuzzle)** | **[🐛 Report Bug](https://github.com/DarkDetox/fruitpuzzle/issues)** | **[💡 Request Feature](https://github.com/DarkDetox/fruitpuzzle/issues)**
+**[🎮 Play Now](https://darkdetox.github.io/FruitPuzzle/)** | **[⭐ Star This Repo](https://github.com/DarkDetox/FruitPuzzle)** | **[🐛 Report Bug](https://github.com/DarkDetox/FruitPuzzle/issues)** | **[💡 Request Feature](https://github.com/DarkDetox/FruitPuzzle/issues)**
 
 ---
 
-**[⬆ Back to Top](#-fruit-puzzle---modern-match-3--2048-game)**
+**[⬆ Back to Top](#-Fruit-Puzzle---modern-match-3--2048-game)**
 
 <img src="https://img.shields.io/badge/Thanks%20for%20visiting!-🍎-ff6b6b?style=for-the-badge" alt="Thanks">
 
