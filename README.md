@@ -227,31 +227,7 @@ Then visit: http://localhost:8000
 2. Click the "Install" button in your browser
 3. Enjoy offline gameplay! 🎮
 
----
 
-## 📂 Project Structure
-fruitpuzzle/
-├── 📄 index.html              # Main game structure
-├── 🎨 style.css               # Styling and 36 themes
-├── ⚡ script.js               # Game logic (3000+ lines)
-├── 📱 manifest.json           # PWA configuration
-├── 🔧 sw.js                   # Service worker
-├── 📸 screenshots/            # Game screenshots
-│   ├── main-menu.png
-│   ├── match3-gameplay.png
-│   ├── 2048-gameplay.png
-│   └── shop-powerups.png
-├── 🚫 .gitignore             # Git ignore file
-├── 📄 README.md              # You are here!
-└── 🎵 assets/ (Optional)     # Custom audio/images
-├── background-music.mp3
-├── match.mp3
-├── click.mp3
-├── win.mp3
-└── lose.mp3
-
-
----
 
 ## 🎵 Custom Assets (Optional)
 
