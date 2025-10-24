@@ -13,6 +13,8 @@ A beautiful Match-3 and 2048 merge puzzle game with 36 themes, inventory system,
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
+![Deploy](https://github.com/DarkDetox/fruitpuzzle/actions/workflows/deploy.yml/badge.svg)
+
 ### 🎮 A stunning Match-3 and 2048 merge puzzle game with glassmorphism UI, 36 themes, and PWA support!
 
 <br>
