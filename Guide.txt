@@ -1,0 +1,20 @@
+fruit-match-game/
+ index.html
+ style.css
+ script.js
+ manifest.json
+ sw.js
+ assets/ (OPTIONAL - if not provided, uses Web Audio API)
+     background-music.mp3
+     match.mp3
+     click.mp3
+     win.mp3
+     lose.mp3
+     fruits/
+         apple.png
+         orange.png
+         lemon.png
+         grape.png
+         strawberry.png
+         cherry.png
+         peach.png

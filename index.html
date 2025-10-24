@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fruit Match - Puzzle Game</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body id="mainBody" class="theme-1">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-icon">🍎</div>
+            <h1 class="loading-title">Fruit Match</h1>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+            <p class="loading-text">Loading game...</p>
+        </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div class="mode-selection" id="modeSelection" style="display: none;">
+        <div class="glass-container">
+            <div class="game-logo">🍎Fruit Match</div>
+            <p class="game-subtitle">Choose Your Game Mode</p>
+
+            <div class="settings-row">
+                <button id="musicToggleMenu" class="icon-btn ripple" title="Background Music">
+                    <span class="material-icons-outlined">music_note</span>
+                </button>
+                <button id="sfxToggleMenu" class="icon-btn ripple" title="Sound Effects">
+                    <span class="material-icons-outlined">volume_up</span>
+                </button>
+                <button class="icon-btn ripple" onclick="openThemeSettings()" title="Change Theme">
+                    <span class="material-icons-outlined">palette</span>
+                </button>
+                <button class="icon-btn ripple" onclick="openShop()" title="Power-Up Shop">
+                    <span class="material-icons-outlined">store</span>
+                </button>
+            </div>
+
+            <div class="mode-cards">
+                <div class="mode-card glass-card ripple" onclick="selectMode('level')">
+                    <div class="mode-icon">
+                        <span class="material-icons-outlined">flag</span>
+                    </div>
+                    <h2 class="mode-title">Level Mode</h2>
+                    <p class="mode-desc">Progress through challenging levels</p>
+                    <div class="mode-stat">
+                        <span class="stat-label">Current Level</span>
+                        <span class="stat-value" id="currentLevelDisplay">1</span>
+                    </div>
+                </div>
+
+                <div class="mode-card glass-card ripple" onclick="selectMode('merge2048')">
+                    <div class="mode-icon">
+                        <span class="material-icons-outlined">extension</span>
+                    </div>
+                    <h2 class="mode-title">2048 Merge</h2>
+                    <p class="mode-desc">Merge fruits to reach 2048!</p>
+                    <div class="mode-stat">
+                        <span class="stat-label">Best Tile</span>
+                        <span class="stat-value" id="best2048Display">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coins-display">
+                <span class="material-icons-outlined coin-icon">monetization_on</span>
+                <span class="coin-amount" id="menuCoins">0</span>
+                <span class="coin-label">Coins</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen (Match-3) -->
+    <div class="game-container glass-container" id="gameContainer" style="display: none;">
+        <div class="game-header">
+            <button class="icon-btn ripple" onclick="backToMenu()" title="Back to Menu">
+                <span class="material-icons-outlined">arrow_back</span>
+            </button>
+            <h1 class="game-title" id="gameTitle">Level 1</h1>
+            <button class="icon-btn ripple" onclick="openInventory()" title="Power-Up Inventory">
+                <span class="material-icons-outlined">inventory_2</span>
+                <span class="badge" id="inventoryBadge">0</span>
+            </button>
+        </div>
+
+        <div class="score-board glass-surface">
+            <div class="score-item">
+                <div class="score-label">Score</div>
+                <div class="score-value" id="score">0</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Moves</div>
+                <div class="score-value" id="moves">20</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Target</div>
+                <div class="score-value" id="target">500</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Coins</div>
+                <div class="score-value coin-value" id="coins">0</div>
+            </div>
+        </div>
+
+        <div class="audio-controls">
+            <button id="musicToggle" class="icon-btn ripple" title="Toggle Music">
+                <span class="material-icons-outlined">music_note</span>
+            </button>
+            <button id="sfxToggle" class="icon-btn ripple" title="Toggle Sound">
+                <span class="material-icons-outlined">volume_up</span>
+            </button>
+        </div>
+
+        <div class="game-board glass-surface" id="gameBoard"></div>
+
+        <div class="game-message" id="message"></div>
+    </div>
+
+    <!-- 2048 Container -->
+    <div class="game-container glass-container" id="merge2048Container" style="display: none;">
+        <div class="game-header">
+            <button class="icon-btn ripple" onclick="backToMenu()" title="Back to Menu">
+                <span class="material-icons-outlined">arrow_back</span>
+            </button>
+            <h1 class="game-title">2048 Merge</h1>
+            <button class="icon-btn ripple" onclick="open2048Inventory()" title="Power-Up Inventory">
+                <span class="material-icons-outlined">inventory_2</span>
+                <span class="badge" id="inventory2048Badge">0</span>
+            </button>
+        </div>
+
+        <div class="score-board glass-surface">
+            <div class="score-item">
+                <div class="score-label">Score</div>
+                <div class="score-value" id="merge2048Score">0</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Best</div>
+                <div class="score-value" id="merge2048Best">2</div>
+            </div>
+            <div class="score-item">
+                <div class="score-label">Coins</div>
+                <div class="score-value coin-value" id="merge2048Coins">0</div>
+            </div>
+        </div>
+
+        <div class="audio-controls">
+            <button id="musicToggleMerge" class="icon-btn ripple" title="Toggle Music">
+                <span class="material-icons-outlined">music_note</span>
+            </button>
+            <button id="sfxToggleMerge" class="icon-btn ripple" title="Toggle Sound">
+                <span class="material-icons-outlined">volume_up</span>
+            </button>
+        </div>
+
+        <div class="merge-board glass-surface" id="merge2048Board"></div>
+
+        <div class="merge-controls">
+            <button class="control-btn icon-btn ripple" onclick="moveMerge('up')" title="Move Up">
+                <span class="material-icons-outlined">arrow_upward</span>
+            </button>
+            <div class="horizontal-controls">
+                <button class="control-btn icon-btn ripple" onclick="moveMerge('left')" title="Move Left">
+                    <span class="material-icons-outlined">arrow_back</span>
+                </button>
+                <button class="control-btn icon-btn ripple" onclick="moveMerge('down')" title="Move Down">
+                    <span class="material-icons-outlined">arrow_downward</span>
+                </button>
+                <button class="control-btn icon-btn ripple" onclick="moveMerge('right')" title="Move Right">
+                    <span class="material-icons-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <button class="primary-btn ripple full-width" onclick="resetMerge2048()">
+            <span class="material-icons-outlined">refresh</span>
+            <span>New Game</span>
+        </button>
+
+        <div class="game-message" id="merge2048Message"></div>
+    </div>
+
+    <!-- Theme Modal -->
+    <div class="modal" id="themeModal">
+        <div class="modal-overlay" onclick="closeThemeSettings()"></div>
+        <div class="modal-content glass-container">
+            <div class="modal-header">
+                <h2 class="modal-title">🎨 Choose Theme</h2>
+                <button class="icon-btn ripple" onclick="closeThemeSettings()">
+                    <span class="material-icons-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-body scrollable">
+                <div class="theme-grid" id="themeGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Modal -->
+    <div class="modal" id="shopModal">
+        <div class="modal-overlay" onclick="closeShop()"></div>
+        <div class="modal-content glass-container">
+            <div class="modal-header">
+                <h2 class="modal-title">🏪 Power-Up Shop</h2>
+                <button class="icon-btn ripple" onclick="closeShop()">
+                    <span class="material-icons-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-body scrollable">
+                <div class="coins-balance">
+                    <span class="material-icons-outlined coin-icon">monetization_on</span>
+                    <span class="coin-amount" id="shopCoins">0</span>
+                    <span class="coin-label">Coins</span>
+                </div>
+                
+                <h3 class="section-title">Match-3 Power-Ups</h3>
+                <div class="powerup-grid">
+                    <div class="powerup-card glass-card ripple" onclick="buyPowerUp('shuffle')">
+                        <div class="powerup-icon">🔀</div>
+                        <h4 class="powerup-name">Shuffle Board</h4>
+                        <p class="powerup-desc">Rearrange all fruits randomly</p>
+                        <div class="powerup-cost">
+                            <span class="material-icons-outlined">monetization_on</span>
+                            <span>10 Coins</span>
+                        </div>
+                    </div>
+
+                    <div class="powerup-card glass-card ripple" onclick="buyPowerUp('hint')">
+                        <div class="powerup-icon">💡</div>
+                        <h4 class="powerup-name">Hint</h4>
+                        <p class="powerup-desc">Highlight a possible match</p>
+                        <div class="powerup-cost">
+                            <span class="material-icons-outlined">monetization_on</span>
+                            <span>15 Coins</span>
+                        </div>
+                    </div>
+
+                    <div class="powerup-card glass-card ripple" onclick="buyPowerUp('bomb')">
+                        <div class="powerup-icon">💣</div>
+                        <h4 class="powerup-name">Color Bomb</h4>
+                        <p class="powerup-desc">Clear one fruit type</p>
+                        <div class="powerup-cost">
+                            <span class="material-icons-outlined">monetization_on</span>
+                            <span>25 Coins</span>
+                        </div>
+                    </div>
+
+                    <div class="powerup-card glass-card ripple" onclick="buyPowerUp('moves')">
+                        <div class="powerup-icon">➕</div>
+                        <h4 class="powerup-name">Extra Moves</h4>
+                        <p class="powerup-desc">Add 5 more moves</p>
+                        <div class="powerup-cost">
+                            <span class="material-icons-outlined">monetization_on</span>
+                            <span>20 Coins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-title">2048 Power-Ups</h3>
+                <div class="powerup-grid">
+                    <div class="powerup-card glass-card ripple" onclick="buyPowerUp('undo2048')">
+                        <div class="powerup-icon">↩️</div>
+                        <h4 class="powerup-name">Undo Move</h4>
+                        <p class="powerup-desc">Undo your last move</p>
+                        <div class="powerup-cost">
+                            <span class="material-icons-outlined">monetization_on</span>
+                            <span>15 Coins</span>
+                        </div>
+                    </div>
+
+                    <div class="powerup-card glass-card ripple" onclick="buyPowerUp('remove2048')">
+                        <div class="powerup-icon">🗑️</div>
+                        <h4 class="powerup-name">Remove Tile</h4>
+                        <p class="powerup-desc">Remove lowest value tile</p>
+                        <div class="powerup-cost">
+                            <span class="material-icons-outlined">monetization_on</span>
+                            <span>20 Coins</span>
+                        </div>
+                    </div>
+
+                    <div class="powerup-card glass-card ripple" onclick="buyPowerUp('merge2048Power')">
+                        <div class="powerup-icon">⚡</div>
+                        <h4 class="powerup-name">Auto Merge</h4>
+                        <p class="powerup-desc">Merge two random tiles</p>
+                        <div class="powerup-cost">
+                            <span class="material-icons-outlined">monetization_on</span>
+                            <span>30 Coins</span>
+                        </div>
+                    </div>
+
+                    <div class="powerup-card glass-card ripple" onclick="buyPowerUp('clearSmall2048')">
+                        <div class="powerup-icon">🧹</div>
+                        <h4 class="powerup-name">Clear Small Tiles</h4>
+                        <p class="powerup-desc">Remove all tiles under 8</p>
+                        <div class="powerup-cost">
+                            <span class="material-icons-outlined">monetization_on</span>
+                            <span>25 Coins</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Modal (Match-3) -->
+    <div class="modal" id="inventoryModal">
+        <div class="modal-overlay" onclick="closeInventory()"></div>
+        <div class="modal-content glass-container">
+            <div class="modal-header">
+                <h2 class="modal-title">🎒 Power-Up Inventory</h2>
+                <button class="icon-btn ripple" onclick="closeInventory()">
+                    <span class="material-icons-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="inventory-grid" id="inventoryGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Modal (2048) -->
+    <div class="modal" id="inventory2048Modal">
+        <div class="modal-overlay" onclick="close2048Inventory()"></div>
+        <div class="modal-content glass-container">
+            <div class="modal-header">
+                <h2 class="modal-title">🎒 Power-Up Inventory</h2>
+                <button class="icon-btn ripple" onclick="close2048Inventory()">
+                    <span class="material-icons-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="inventory-grid" id="inventory2048Grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level Complete Modal -->
+    <div class="modal" id="levelCompleteModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-container celebration-modal">
+            <div class="celebration-icon">🏆</div>
+            <h2 class="modal-title celebration-title">Level Complete!</h2>
+            <p class="modal-score-text">Score: <span id="modalScore">0</span></p>
+            <p class="modal-coins-text">Coins Earned: +<span id="modalCoins">0</span> 🪙</p>
+            <button class="primary-btn ripple full-width" onclick="nextLevel()">
+                <span>Next Level</span>
+                <span class="material-icons-outlined">arrow_forward</span>
+            </button>
+            <button class="secondary-btn ripple full-width" onclick="backToMenu()">Back to Menu</button>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div class="modal" id="gameOverModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-container">
+            <div class="gameover-icon">😞</div>
+            <h2 class="modal-title">Game Over</h2>
+            <p class="modal-score-text">Final Score: <span id="finalScore">0</span></p>
+            <p class="modal-message-text" id="gameOverMessage"></p>
+            <button class="primary-btn ripple full-width" onclick="resetGame()">
+                <span class="material-icons-outlined">refresh</span>
+                <span>Try Again</span>
+            </button>
+            <button class="secondary-btn ripple full-width" onclick="backToMenu()">Back to Menu</button>
+        </div>
+    </div>
+
+    <!-- 2048 Game Over Modal -->
+    <div class="modal" id="merge2048GameOverModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-container">
+            <div class="gameover-icon">🎮</div>
+            <h2 class="modal-title">Game Over!</h2>
+            <p class="modal-score-text">Final Score: <span id="merge2048FinalScore">0</span></p>
+            <p class="modal-score-text">Best Tile: <span id="merge2048FinalBest">2</span></p>
+            <button class="primary-btn ripple full-width" onclick="resetMerge2048(); closeMerge2048GameOver();">
+                <span class="material-icons-outlined">refresh</span>
+                <span>Play Again</span>
+            </button>
+            <button class="secondary-btn ripple full-width" onclick="closeMerge2048GameOver(); backToMenu();">Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

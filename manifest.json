@@ -1,0 +1,59 @@
+{
+    "name": "Fruit Match - Puzzle Game",
+    "short_name": "FruitMatch",
+    "description": "Match-3 puzzle game with 2048 merge mode, power-ups inventory system, and 36 beautiful themes!",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#667eea",
+    "theme_color": "#667eea",
+    "categories": ["games", "entertainment"],
+    "icons": [
+        {
+            "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect fill='%23667eea' width='192' height='192' rx='40'/%3E%3Ctext x='96' y='130' font-size='100' text-anchor='middle' fill='white'%3E🍎%3C/text%3E%3C/svg%3E",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect fill='%23667eea' width='512' height='512' rx='100'/%3E%3Ctext x='256' y='350' font-size='280' text-anchor='middle' fill='white'%3E🍎%3C/text%3E%3C/svg%3E",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Level Mode",
+            "url": "./index.html?mode=level",
+            "description": "Start Level Mode",
+            "icons": [
+                {
+                    "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23667eea' width='96' height='96' rx='20'/%3E%3Ctext x='48' y='65' font-size='50' text-anchor='middle' fill='white'%3E🚩%3C/text%3E%3C/svg%3E",
+                    "sizes": "96x96",
+                    "type": "image/svg+xml"
+                }
+            ]
+        },
+        {
+            "name": "2048 Merge",
+            "url": "./index.html?mode=2048",
+            "description": "Start 2048 Merge Mode",
+            "icons": [
+                {
+                    "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect fill='%23667eea' width='96' height='96' rx='20'/%3E%3Ctext x='48' y='65' font-size='50' text-anchor='middle' fill='white'%3E🧩%3C/text%3E%3C/svg%3E",
+                    "sizes": "96x96",
+                    "type": "image/svg+xml"
+                }
+            ]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'%3E%3Crect fill='%23667eea' width='540' height='720'/%3E%3Ctext x='270' y='360' font-size='100' text-anchor='middle' fill='white'%3E🍎🍊🍋%3C/text%3E%3C/svg%3E",
+            "sizes": "540x720",
+            "type": "image/svg+xml",
+            "form_factor": "narrow"
+        }
+    ]
+}
