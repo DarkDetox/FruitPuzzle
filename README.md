@@ -194,6 +194,8 @@ Service Worker -  LocalStorage -  Progressive Web App
 
 ---
 
+---
+
 ## 🚀 Quick Start
 
 <div align="center">
@@ -206,26 +208,55 @@ Service Worker -  LocalStorage -  Progressive Web App
 
 ### 💻 Run Locally
 
-1. Clone the repository
+**1️⃣ Clone the repository**
 git clone https://github.com/DarkDetox/fruitpuzzle.git
 
-2. Navigate to project folder
+
+**2️⃣ Navigate to project folder**
 cd fruitpuzzle
 
-3. Open in browser (no build required!)
+
+**3️⃣ Open in browser (no build required!)**
 open index.html
 
-Or use a local server (recommended)
+
+**Or use a local server (recommended)**
 python -m http.server 8000
 
-Then visit: http://localhost:8000
+Then visit: **http://localhost:8000**
 
+> **💡 Pro Tip**: Using a local server prevents CORS issues with Service Worker!
+
+---
 
 ### 📱 Install as PWA
 
-1. Visit [https://darkdetox.github.io/fruitpuzzle/](https://darkdetox.github.io/fruitpuzzle/)
-2. Click the "Install" button in your browser
-3. Enjoy offline gameplay! 🎮
+<table>
+<tr>
+<td>
+<h4>Step 1</h4>
+Visit <a href="https://darkdetox.github.io/fruitpuzzle/">https://darkdetox.github.io/fruitpuzzle/</a>
+</td>
+</tr>
+<tr>
+<td>
+<h4>Step 2</h4>
+Click the <b>"Install"</b> button in your browser
+</td>
+</tr>
+<tr>
+<td>
+<h4>Step 3</h4>
+Enjoy offline gameplay! 🎮
+</td>
+</tr>
+</table>
+
+**Supported Platforms:**
+- 🖥️ **Desktop**: Chrome, Edge, Firefox, Safari
+- 📱 **Mobile**: Android, iOS
+
+---
 
 
 
