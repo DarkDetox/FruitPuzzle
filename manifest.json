@@ -1,7 +1,9 @@
 {
-    "name": "Fruit Match - Puzzle Game",
+    "name": "Fruit Puzzle",
     "short_name": "FruitMatch",
-    "description": "Match-3 puzzle game with 2048 merge mode, power-ups inventory system, and 36 beautiful themes!",
+    "description": "© 2025 DarkDetox - All Rights Reserved",
+    "author": "DarkDetox (https://github.com/DarkDetox)",
+ inventory system, and 36 beautiful themes!",
     "start_url": "./index.html",
     "display": "standalone",
     "orientation": "portrait",
