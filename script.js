@@ -1,3 +1,25 @@
+
+/*!
+ * ============================================
+ * Fruit Puzzle - Game Logic
+ * ============================================
+ * 
+ * Copyright © 2025 DarkDetox. All Rights Reserved.
+ * 
+ * Author: DarkDetox
+ * GitHub: https://github.com/DarkDetox/fruitpuzzle
+ * Twitter: @TheDevilxyz
+ * Telegram: @DarkDexo
+ * Email: darkdetox05@gmail.com
+ * 
+ * ⚠️ PROPRIETARY AND CONFIDENTIAL
+ * This code is the intellectual property of DarkDetox.
+ * Unauthorized copying, modification, or distribution
+ * is strictly prohibited without written permission.
+ * 
+ * For licensing inquiries: darkdetox05@gmail.com
+ * ============================================
+ */
 // ===== GAME CONSTANTS =====
 const GRID_SIZE = 8;
 const MERGE_GRID_SIZE = 4;
@@ -1492,3 +1514,26 @@ document.addEventListener('keydown', function(e) {
         moveMerge('right');
     }
 });
+
+
+/*!
+ * ============================================
+ * Fruit Puzzle - Game Logic
+ * ============================================
+ * 
+ * Copyright © 2025 DarkDetox. All Rights Reserved.
+ * 
+ * Author: DarkDetox
+ * GitHub: https://github.com/DarkDetox/fruitpuzzle
+ * Twitter: @TheDevilxyz
+ * Telegram: @DarkDexo
+ * Email: darkdetox05@gmail.com
+ * 
+ * ⚠️ PROPRIETARY AND CONFIDENTIAL
+ * This code is the intellectual property of DarkDetox.
+ * Unauthorized copying, modification, or distribution
+ * is strictly prohibited without written permission.
+ * 
+ * For licensing inquiries: darkdetox05@gmail.com
+ * ============================================
+ */
