@@ -319,3 +319,58 @@ Contributions are **welcome**! Feel free to:
 ## 📄 License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+Copyright (c) 2025 DarkDetox
+
+
+---
+
+## 👨‍💻 Author
+
+<div align="center">
+
+**DarkDetox**
+
+[![GitHub](https://img.shields.io/badge/GitHub-DarkDetox-181717?style=for-the-badge&logo=github)](https://github.com/DarkDetox)
+[![Twitter](https://img.shields.io/badge/Twitter-@TheDevilxyz-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/TheDevilxyz)
+
+</div>
+
+---
+
+## ⭐ Show Your Support
+
+<div align="center">
+
+**If you like this project, give it a ⭐ on GitHub!**
+
+[![Star on GitHub](https://img.shields.io/github/stars/DarkDetox/fruitpuzzle?style=social)](https://github.com/DarkDetox/fruitpuzzle)
+
+</div>
+
+---
+
+## 🙏 Acknowledgments
+
+- 🎨 System emoji graphics
+- ✨ GSAP for smooth animations
+- 🎊 Canvas Confetti for celebrations
+- 🔤 Google Fonts (Poppins)
+- 🎯 Material Icons
+- 💜 Open source community
+
+---
+
+<div align="center">
+
+### 🍎 Made with ❤️ and 🍓 by DarkDetox
+
+**[🎮 Play Now](https://darkdetox.github.io/fruitpuzzle/)** | **[⭐ Star This Repo](https://github.com/DarkDetox/fruitpuzzle)** | **[🐛 Report Bug](https://github.com/DarkDetox/fruitpuzzle/issues)** | **[💡 Request Feature](https://github.com/DarkDetox/fruitpuzzle/issues)**
+
+---
+
+**[⬆ Back to Top](#-fruit-puzzle---modern-match-3--2048-game)**
+
+<img src="https://img.shields.io/badge/Thanks%20for%20visiting!-🍎-ff6b6b?style=for-the-badge" alt="Thanks">
+
+</div>
