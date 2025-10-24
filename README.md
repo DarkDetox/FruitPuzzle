@@ -209,18 +209,22 @@ Service Worker -  LocalStorage -  Progressive Web App
 ### 💻 Run Locally
 
 **1️⃣ Clone the repository**
+
 git clone https://github.com/DarkDetox/fruitpuzzle.git
 
 
 **2️⃣ Navigate to project folder**
+
 cd fruitpuzzle
 
 
 **3️⃣ Open in browser (no build required!)**
+
 open index.html
 
 
 **Or use a local server (recommended)**
+
 python -m http.server 8000
 
 Then visit: **http://localhost:8000**
