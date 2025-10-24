@@ -32,3 +32,47 @@ google-services.json
 
 # Android Profiling
 *.hprof
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Optional assets folder (if you don't want to share custom sounds/images)
+# assets/
+
+# Screenshots/videos (add later when you have them)
+screenshots/*.psd
+screenshots/*.ai
+*.mp4
+*.mov
+
+# Testing files
+test/
+*.test.js
+
+# Build files (if you add build tools later)
+node_modules/
+dist/
+build/
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Environment files (if you add API keys later)
+.env
+.env.local
