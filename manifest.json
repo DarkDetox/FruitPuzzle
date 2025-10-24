@@ -1,14 +1,13 @@
 {
-    "name": "Fruit Puzzle - Match-3 & 2048 Game",
-    "short_name": "FruitPuzzle",
-    "description": "🍎 Match-3 & 2048 puzzle game with 36 themes, power-ups, and PWA support",
+    "name": "Fruit Match - Puzzle Game",
+    "short_name": "FruitMatch",
+    "description": "Match-3 puzzle game with 2048 merge mode, power-ups inventory system, and 36 beautiful themes!",
     "start_url": "./index.html",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#667eea",
     "theme_color": "#667eea",
     "categories": ["games", "entertainment"],
-    "author": "DarkDetox (https://github.com/DarkDetox)",
     "icons": [
         {
             "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect fill='%23667eea' width='192' height='192' rx='40'/%3E%3Ctext x='96' y='130' font-size='100' text-anchor='middle' fill='white'%3E🍎%3C/text%3E%3C/svg%3E",
