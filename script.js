@@ -1,11 +1,39 @@
+/*
+╔══════════════════════════════════════════════════════════════════╗
+║                    🍎 FRUIT MATCH PUZZLE GAME                    ║
+║                         JAVASCRIPT                                ║
+║                                                                  ║
+║  Author: DarkDetox                                              ║
+║  GitHub: https://github.com/DarkDetox                           ║
+║  Repository: https://github.com/DarkDetox/FruitPuzzle          ║
+║  Email: DarkDetox05@gmail.com                                   ║
+║  Telegram: @DarkDexo                                            ║
+║                                                                  ║
+║  © 2025 DarkDetox. All Rights Reserved.                         ║
+║                                                                  ║
+║  This code is proprietary and confidential.                     ║
+║  Unauthorized copying, modification, distribution, or use       ║
+║  of this software, via any medium, is strictly prohibited.      ║
+║                                                                  ║
+║  Licensed under: All Rights Reserved                            ║
+╚══════════════════════════════════════════════════════════════════╝
+*/
+
+// ===== COPYRIGHT PROTECTION =====
+console.log('%c🍎 Fruit Match Puzzle Game', 'font-size: 24px; font-weight: bold; color: #667eea;');
+console.log('%c© 2025 DarkDetox - All Rights Reserved', 'font-size: 14px; color: #f093fb;');
+console.log('%cGitHub: https://github.com/DarkDetox/FruitPuzzle', 'font-size: 12px; color: #4facfe;');
+console.log('%c⚠️ Unauthorized copying or modification is strictly prohibited!', 'font-size: 12px; font-weight: bold; color: #ff4444; background: #ffe6e6; padding: 4px;');
+
 // ===== GAME CONSTANTS =====
+// Created by DarkDetox - github.com/DarkDetox
 const GRID_SIZE = 8;
 const MERGE_GRID_SIZE = 4;
 const FRUITS = ['🍎', '🍊', '🍋', '🍇', '🍓', '🍒', '🍑'];
 const MERGE_FRUITS = ['🍒', '🍓', '🍑', '🍊', '🍋', '🍌', '🍉', '🍇', '🍍', '🥝', '🥭'];
 
 // ===== CUSTOM ASSET PATHS (OPTIONAL) =====
-// If these files exist, they will be used. Otherwise, Web Audio API is used as fallback.
+// © 2025 DarkDetox
 const CUSTOM_ASSETS = {
     backgroundMusic: './assets/background-music.mp3',
     matchSound: './assets/match.mp3',
@@ -24,6 +52,7 @@ const CUSTOM_ASSETS = {
 };
 
 // ===== GAME STATE =====
+// Developed by DarkDetox
 let board = [];
 let merge2048Board = [];
 let merge2048History = [];
@@ -40,7 +69,7 @@ let soundEnabled = true;
 let musicEnabled = true;
 let currentTheme = 'theme-1';
 
-// Inventory System
+// Inventory System - © DarkDetox
 let inventory = {
     shuffle: 0,
     hint: 0,
@@ -66,6 +95,7 @@ let bgMusicElement;
 let customAssetsLoaded = false;
 
 // ===== THEMES =====
+// Theme System by DarkDetox - All Rights Reserved
 const THEMES = [
     { name: 'Purple Dream', class: 'theme-1', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
     { name: 'Pink Sunset', class: 'theme-2', gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' },
@@ -105,6 +135,7 @@ const THEMES = [
     { name: 'AMOLED Dark', class: 'theme-dark', gradient: '#000000' }
 ];
 
+// Level Configuration - © DarkDetox
 const LEVEL_CONFIG = [
     { level: 1, moves: 20, target: 500 },
     { level: 2, moves: 20, target: 700 },
@@ -119,6 +150,7 @@ const LEVEL_CONFIG = [
 ];
 
 // ===== INITIALIZATION =====
+// Initialization System by DarkDetox
 window.addEventListener('DOMContentLoaded', function() {
     showLoadingScreen();
 });
@@ -140,6 +172,7 @@ function showLoadingScreen() {
     }, 2000);
 }
 
+// Main Initialization - © 2025 DarkDetox
 function initializeGame() {
     loadGameData();
     updateModeSelection();
@@ -161,8 +194,8 @@ function initializeGame() {
 }
 
 // ===== CUSTOM ASSET CHECKER =====
+// Asset System by DarkDetox
 function checkCustomAssets() {
-    // Check if custom background music exists
     const testAudio = new Audio();
     testAudio.src = CUSTOM_ASSETS.backgroundMusic;
     
@@ -178,6 +211,7 @@ function checkCustomAssets() {
 }
 
 // ===== BACKGROUND MUSIC (CUSTOM OR WEB AUDIO API) =====
+// Audio System - © DarkDetox
 function initBackgroundMusic() {
     document.addEventListener('click', startBackgroundMusic, { once: true });
 }
@@ -186,7 +220,6 @@ function startBackgroundMusic() {
     if (!musicEnabled) return;
     
     if (customAssetsLoaded) {
-        // Use custom music file
         if (!bgMusicElement) {
             bgMusicElement = new Audio(CUSTOM_ASSETS.backgroundMusic);
             bgMusicElement.loop = true;
@@ -194,18 +227,17 @@ function startBackgroundMusic() {
         }
         bgMusicElement.play().catch(e => console.log('Music play failed:', e.message));
     } else {
-        // Use Web Audio API fallback
         startWebAudioMusic();
     }
 }
 
+// Web Audio API Fallback - Developed by DarkDetox
 function startWebAudioMusic() {
     try {
         if (!audioContext) {
             audioContext = new (window.AudioContext || window.webkitAudioContext)();
         }
         
-        // Create a simple ambient background music using oscillators
         const osc1 = audioContext.createOscillator();
         const osc2 = audioContext.createOscillator();
         const gain = audioContext.createGain();
@@ -220,7 +252,6 @@ function startWebAudioMusic() {
         osc2.frequency.value = 330;
         gain.gain.value = 0.03;
         
-        // Create a melody pattern
         const notes = [220, 247, 262, 294, 330, 349, 392];
         let noteIndex = 0;
         
@@ -254,6 +285,7 @@ function toggleBackgroundMusic(enable) {
 }
 
 // ===== SOUND EFFECTS (CUSTOM OR WEB AUDIO API) =====
+// Sound Effects System - © 2025 DarkDetox
 function playSound(soundType) {
     if (!soundEnabled) return;
     
@@ -273,6 +305,7 @@ function playSound(soundType) {
     }
 }
 
+// Web Audio Sound Generator - Created by DarkDetox
 function playWebAudioSound(soundType) {
     if (!soundEnabled) return;
     
@@ -284,7 +317,6 @@ function playWebAudioSound(soundType) {
         osc.connect(gain);
         gain.connect(audioContext.destination);
         
-        // Different sounds based on type
         switch(soundType) {
             case 'click':
                 osc.frequency.value = 1200;
@@ -320,6 +352,7 @@ function playWebAudioSound(soundType) {
 }
 
 // ===== RIPPLE EFFECT (NO BLUE HIGHLIGHT) =====
+// Ripple Effect System - © DarkDetox
 function setupRippleEffect() {
     document.addEventListener('click', function(e) {
         const target = e.target.closest('.ripple');
@@ -345,6 +378,7 @@ function setupRippleEffect() {
 }
 
 // ===== THEME SYSTEM =====
+// Theme Management - Designed by DarkDetox
 function generateThemeGrid() {
     const grid = document.getElementById('themeGrid');
     if (!grid) return;
@@ -386,6 +420,7 @@ function closeThemeSettings() {
 }
 
 // ===== SHOP & INVENTORY SYSTEM =====
+// Shop System - © 2025 DarkDetox
 function openShop() {
     const modal = document.getElementById('shopModal');
     const coinsEl = document.getElementById('shopCoins');
@@ -399,6 +434,7 @@ function closeShop() {
     document.getElementById('shopModal').classList.remove('active');
 }
 
+// Power-Up Purchase System - Created by DarkDetox
 function buyPowerUp(type) {
     const costs = { 
         shuffle: 10, 
@@ -421,7 +457,6 @@ function buyPowerUp(type) {
     
     coins -= cost;
     
-    // Add to appropriate inventory
     if (['shuffle', 'hint', 'bomb', 'moves'].includes(type)) {
         inventory[type]++;
     } else {
@@ -448,6 +483,7 @@ function updateInventoryBadges() {
 }
 
 // ===== INVENTORY MODALS =====
+// Inventory System - Developed by DarkDetox
 function openInventory() {
     const modal = document.getElementById('inventoryModal');
     const grid = document.getElementById('inventoryGrid');
@@ -490,6 +526,7 @@ function closeInventory() {
     document.getElementById('inventoryModal').classList.remove('active');
 }
 
+// 2048 Inventory - © DarkDetox
 function open2048Inventory() {
     const modal = document.getElementById('inventory2048Modal');
     const grid = document.getElementById('inventory2048Grid');
@@ -533,6 +570,7 @@ function close2048Inventory() {
 }
 
 // ===== USE POWER-UPS (FROM INVENTORY) =====
+// Power-Up Usage System - © 2025 DarkDetox
 function usePowerUp(type) {
     if (inventory[type] <= 0) {
         showMessage('❌ No power-ups left!');
@@ -572,6 +610,7 @@ function use2048PowerUp(type) {
 }
 
 // ===== LOAD/SAVE =====
+// Save/Load System - Created by DarkDetox
 function loadGameData() {
     currentLevel = parseInt(localStorage.getItem('fruitMatchLevel')) || 1;
     coins = parseInt(localStorage.getItem('fruitMatchCoins')) || 0;
@@ -597,6 +636,7 @@ function saveGameData() {
 }
 
 // ===== MODE SELECTION =====
+// Mode Selection System - © DarkDetox
 function updateModeSelection() {
     const levelEl = document.getElementById('currentLevelDisplay');
     const best2048El = document.getElementById('best2048Display');
@@ -618,6 +658,7 @@ function updateAllCoins() {
 }
 
 // ===== AUDIO CONTROLS =====
+// Audio Control System - Developed by DarkDetox
 function setupMenuAudioControls() {
     const musicBtn = document.getElementById('musicToggleMenu');
     const sfxBtn = document.getElementById('sfxToggleMenu');
@@ -660,6 +701,7 @@ function updateMenuButtons() {
 }
 
 // ===== GAME MODE SELECTION =====
+// Game Mode System - © 2025 DarkDetox
 function selectMode(mode) {
     gameMode = mode;
     document.getElementById('modeSelection').style.display = 'none';
@@ -693,6 +735,7 @@ function backToMenu() {
 }
 
 // ===== MATCH-3 GAME =====
+// Match-3 Game Engine - Created by DarkDetox
 function initGame() {
     board = [];
     score = 0;
@@ -709,6 +752,7 @@ function initGame() {
     showMessage('🎯 Match 3 or more fruits!');
 }
 
+// Game Audio Setup - © DarkDetox
 function setupGameAudio() {
     ['musicToggle', 'sfxToggle'].forEach(id => {
         const btn = document.getElementById(id);
@@ -747,6 +791,7 @@ function updateGameButtons() {
     }
 }
 
+// Board Creation - Developed by DarkDetox
 function createBoard() {
     for (let r = 0; r < GRID_SIZE; r++) {
         board[r] = [];
@@ -773,6 +818,7 @@ function renderBoard() {
 }
 
 // ===== SWIPE =====
+// Swipe System - © 2025 DarkDetox
 function setupSwipe() {
     const gb = document.getElementById('gameBoard');
     if (!gb) return;
@@ -849,6 +895,7 @@ function handleMouseUp(e) {
 }
 
 // ===== MATCH LOGIC =====
+// Match Logic System - Created by DarkDetox
 function swapTiles(t1, t2) {
     isProcessing = true;
     [board[t1.row][t1.col], board[t2.row][t2.col]] = [board[t2.row][t2.col], board[t1.row][t1.col]];
@@ -870,6 +917,7 @@ function swapTiles(t1, t2) {
     }, 300);
 }
 
+// Match Finding Algorithm - © DarkDetox
 function findMatches() {
     const matches = [];
     
@@ -900,6 +948,7 @@ function findMatches() {
     return matches.filter((m, i, a) => i === a.findIndex(t => t.row === m.row && t.col === m.col));
 }
 
+// Match Processing - Developed by DarkDetox
 function processMatches() {
     const matches = findMatches();
     if (matches.length === 0) {
@@ -933,6 +982,7 @@ function removeMatches() {
     findMatches().forEach(m => board[m.row][m.col] = null);
 }
 
+// Gravity System - © 2025 DarkDetox
 function applyGravity() {
     for (let c = 0; c < GRID_SIZE; c++) {
         let empty = GRID_SIZE - 1;
@@ -974,6 +1024,7 @@ function showMessage(txt) {
 }
 
 // ===== POWER-UPS (WORKING WITH HINTS) =====
+// Power-Up System - © DarkDetox
 function shuffle() {
     const fruits = board.flat().filter(f => f);
     for (let i = fruits.length - 1; i > 0; i--) {
@@ -995,6 +1046,7 @@ function shuffle() {
     playSound('click');
 }
 
+// Hint System - Created by DarkDetox
 function showHint() {
     for (let r = 0; r < GRID_SIZE; r++) {
         for (let c = 0; c < GRID_SIZE; c++) {
@@ -1039,6 +1091,7 @@ function highlightHint(r1, c1, r2, c2) {
     }
 }
 
+// Color Bomb Power-Up - © DarkDetox
 function activateColorBomb() {
     const counts = {};
     board.flat().filter(f => f).forEach(f => counts[f] = (counts[f] || 0) + 1);
@@ -1069,6 +1122,7 @@ function activateColorBomb() {
 }
 
 // ===== GAME STATUS =====
+// Game Status System - Developed by DarkDetox
 function checkGameStatus() {
     if (score >= targetScore) {
         setTimeout(() => levelComplete(), 500);
@@ -1110,6 +1164,7 @@ function resetGame() {
 }
 
 // ===== 2048 MERGE GAME =====
+// 2048 Game Engine - © 2025 DarkDetox
 function initMerge2048() {
     merge2048Board = Array(MERGE_GRID_SIZE).fill().map(() => Array(MERGE_GRID_SIZE).fill(0));
     merge2048History = [];
@@ -1160,6 +1215,7 @@ function update2048Buttons() {
     }
 }
 
+// 2048 Tile System - Created by DarkDetox
 function addRandomTile() {
     const empty = [];
     for (let i = 0; i < MERGE_GRID_SIZE; i++) {
@@ -1173,6 +1229,7 @@ function addRandomTile() {
     }
 }
 
+// 2048 Render System - © DarkDetox
 function renderMerge() {
     const board = document.getElementById('merge2048Board');
     if (!board) return;
@@ -1188,120 +1245,95 @@ function renderMerge() {
             } else {
                 tile.className = 'merge-tile';
                 tile.dataset.value = val;
-                const idx = Math.log2(val) - 1;
-                tile.textContent = MERGE_FRUITS[idx] || '🌟';
-                
-                const span = document.createElement('div');
-                span.className = 'merge-tile-value';
-                span.textContent = val;
-                tile.appendChild(span);
+                tile.innerHTML = `${MERGE_FRUITS[Math.min(Math.log2(val) - 1, MERGE_FRUITS.length - 1)]}<div class="merge-tile-value">${val}</div>`;
             }
+            
             board.appendChild(tile);
         }
     }
 }
 
-function moveMerge(dir) {
-    // Save state for undo
-    merge2048History.push(JSON.parse(JSON.stringify(merge2048Board)));
-    if (merge2048History.length > 10) merge2048History.shift();
-    
+// 2048 Movement System - Developed by DarkDetox
+function moveMerge(direction) {
+    saveHistory();
     let moved = false;
     
-    if (dir === 'left') moved = moveLeft();
-    else if (dir === 'right') moved = moveRight();
-    else if (dir === 'up') moved = moveUp();
-    else if (dir === 'down') moved = moveDown();
+    if (direction === 'left') moved = moveLeft();
+    else if (direction === 'right') moved = moveRight();
+    else if (direction === 'up') moved = moveUp();
+    else if (direction === 'down') moved = moveDown();
     
     if (moved) {
-        playSound('match');
+        playSound('click');
+        addRandomTile();
         renderMerge();
+        update2048Score();
         
-        setTimeout(() => {
-            addRandomTile();
-            renderMerge();
-            
-            if (isGameOver()) {
-                setTimeout(() => showMerge2048GameOver(), 300);
-            }
-        }, 200);
-    } else {
-        merge2048History.pop();
+        if (checkMerge2048GameOver()) {
+            setTimeout(() => showMerge2048GameOver(), 500);
+        }
     }
 }
 
+// 2048 Move Functions - © 2025 DarkDetox
 function moveLeft() {
     let moved = false;
     for (let i = 0; i < MERGE_GRID_SIZE; i++) {
-        const row = merge2048Board[i].filter(v => v !== 0);
+        let row = merge2048Board[i].filter(val => val !== 0);
         for (let j = 0; j < row.length - 1; j++) {
-            if (row[j] === row[j+1]) {
+            if (row[j] === row[j + 1]) {
                 row[j] *= 2;
                 merge2048Score += row[j];
-                coins += Math.floor(row[j] / 8);
-                row.splice(j+1, 1);
-                playSound('match');
-                if (row[j] > best2048Tile) {
-                    best2048Tile = row[j];
-                    saveGameData();
-                }
+                coins += Math.floor(row[j] / 10);
+                if (row[j] > best2048Tile) best2048Tile = row[j];
+                row.splice(j + 1, 1);
+                moved = true;
             }
         }
         while (row.length < MERGE_GRID_SIZE) row.push(0);
-        for (let j = 0; j < MERGE_GRID_SIZE; j++) {
-            if (merge2048Board[i][j] !== row[j]) moved = true;
-            merge2048Board[i][j] = row[j];
-        }
+        if (JSON.stringify(row) !== JSON.stringify(merge2048Board[i])) moved = true;
+        merge2048Board[i] = row;
     }
-    update2048Score();
     return moved;
 }
 
 function moveRight() {
     let moved = false;
     for (let i = 0; i < MERGE_GRID_SIZE; i++) {
-        const row = merge2048Board[i].filter(v => v !== 0);
+        let row = merge2048Board[i].filter(val => val !== 0);
         for (let j = row.length - 1; j > 0; j--) {
-            if (row[j] === row[j-1]) {
+            if (row[j] === row[j - 1]) {
                 row[j] *= 2;
                 merge2048Score += row[j];
-                coins += Math.floor(row[j] / 8);
-                row.splice(j-1, 1);
-                playSound('match');
-                if (row[j] > best2048Tile) {
-                    best2048Tile = row[j];
-                    saveGameData();
-                }
+                coins += Math.floor(row[j] / 10);
+                if (row[j] > best2048Tile) best2048Tile = row[j];
+                row.splice(j - 1, 1);
+                moved = true;
+                j--;
             }
         }
         while (row.length < MERGE_GRID_SIZE) row.unshift(0);
-        for (let j = 0; j < MERGE_GRID_SIZE; j++) {
-            if (merge2048Board[i][j] !== row[j]) moved = true;
-            merge2048Board[i][j] = row[j];
-        }
+        if (JSON.stringify(row) !== JSON.stringify(merge2048Board[i])) moved = true;
+        merge2048Board[i] = row;
     }
-    update2048Score();
     return moved;
 }
 
 function moveUp() {
     let moved = false;
     for (let j = 0; j < MERGE_GRID_SIZE; j++) {
-        const col = [];
+        let col = [];
         for (let i = 0; i < MERGE_GRID_SIZE; i++) {
             if (merge2048Board[i][j] !== 0) col.push(merge2048Board[i][j]);
         }
         for (let i = 0; i < col.length - 1; i++) {
-            if (col[i] === col[i+1]) {
+            if (col[i] === col[i + 1]) {
                 col[i] *= 2;
                 merge2048Score += col[i];
-                coins += Math.floor(col[i] / 8);
-                col.splice(i+1, 1);
-                playSound('match');
-                if (col[i] > best2048Tile) {
-                    best2048Tile = col[i];
-                    saveGameData();
-                }
+                coins += Math.floor(col[i] / 10);
+                if (col[i] > best2048Tile) best2048Tile = col[i];
+                col.splice(i + 1, 1);
+                moved = true;
             }
         }
         while (col.length < MERGE_GRID_SIZE) col.push(0);
@@ -1310,28 +1342,25 @@ function moveUp() {
             merge2048Board[i][j] = col[i];
         }
     }
-    update2048Score();
     return moved;
 }
 
 function moveDown() {
     let moved = false;
     for (let j = 0; j < MERGE_GRID_SIZE; j++) {
-        const col = [];
+        let col = [];
         for (let i = 0; i < MERGE_GRID_SIZE; i++) {
             if (merge2048Board[i][j] !== 0) col.push(merge2048Board[i][j]);
         }
         for (let i = col.length - 1; i > 0; i--) {
-            if (col[i] === col[i-1]) {
+            if (col[i] === col[i - 1]) {
                 col[i] *= 2;
                 merge2048Score += col[i];
-                coins += Math.floor(col[i] / 8);
-                col.splice(i-1, 1);
-                playSound('match');
-                if (col[i] > best2048Tile) {
-                    best2048Tile = col[i];
-                    saveGameData();
-                }
+                coins += Math.floor(col[i] / 10);
+                if (col[i] > best2048Tile) best2048Tile = col[i];
+                col.splice(i - 1, 1);
+                moved = true;
+                i--;
             }
         }
         while (col.length < MERGE_GRID_SIZE) col.unshift(0);
@@ -1340,16 +1369,115 @@ function moveDown() {
             merge2048Board[i][j] = col[i];
         }
     }
-    update2048Score();
     return moved;
 }
 
-function isGameOver() {
+// 2048 History System - Created by DarkDetox
+function saveHistory() {
+    merge2048History.push({
+        board: JSON.parse(JSON.stringify(merge2048Board)),
+        score: merge2048Score
+    });
+    if (merge2048History.length > 10) merge2048History.shift();
+}
+
+function undo2048Move() {
+    if (merge2048History.length === 0) {
+        show2048Message('❌ No moves to undo!');
+        return;
+    }
+    const prev = merge2048History.pop();
+    merge2048Board = prev.board;
+    merge2048Score = prev.score;
+    renderMerge();
+    update2048Score();
+    show2048Message('↩️ Move undone!');
+    playSound('click');
+}
+
+// 2048 Power-Ups - © DarkDetox
+function removeLowestTile() {
+    let minVal = Infinity;
+    let minPos = null;
+    
+    for (let i = 0; i < MERGE_GRID_SIZE; i++) {
+        for (let j = 0; j < MERGE_GRID_SIZE; j++) {
+            if (merge2048Board[i][j] > 0 && merge2048Board[i][j] < minVal) {
+                minVal = merge2048Board[i][j];
+                minPos = { i, j };
+            }
+        }
+    }
+    
+    if (minPos) {
+        merge2048Board[minPos.i][minPos.j] = 0;
+        renderMerge();
+        show2048Message('🗑️ Lowest tile removed!');
+        playSound('click');
+    }
+}
+
+function autoMergeTiles() {
+    for (let i = 0; i < MERGE_GRID_SIZE; i++) {
+        for (let j = 0; j < MERGE_GRID_SIZE - 1; j++) {
+            if (merge2048Board[i][j] > 0 && merge2048Board[i][j] === merge2048Board[i][j + 1]) {
+                merge2048Board[i][j] *= 2;
+                merge2048Score += merge2048Board[i][j];
+                coins += Math.floor(merge2048Board[i][j] / 10);
+                if (merge2048Board[i][j] > best2048Tile) best2048Tile = merge2048Board[i][j];
+                merge2048Board[i][j + 1] = 0;
+                renderMerge();
+                update2048Score();
+                show2048Message('⚡ Auto merged!');
+                playSound('match');
+                return;
+            }
+        }
+    }
+    show2048Message('❌ No tiles to merge!');
+}
+
+function clearSmallTiles() {
+    let cleared = 0;
+    for (let i = 0; i < MERGE_GRID_SIZE; i++) {
+        for (let j = 0; j < MERGE_GRID_SIZE; j++) {
+            if (merge2048Board[i][j] > 0 && merge2048Board[i][j] < 8) {
+                merge2048Board[i][j] = 0;
+                cleared++;
+            }
+        }
+    }
+    if (cleared > 0) {
+        renderMerge();
+        show2048Message(`🧹 Cleared ${cleared} small tiles!`);
+        playSound('click');
+    } else {
+        show2048Message('❌ No small tiles to clear!');
+    }
+}
+
+// 2048 Status Functions - Developed by DarkDetox
+function update2048Score() {
+    document.getElementById('merge2048Score').textContent = merge2048Score;
+    document.getElementById('merge2048Best').textContent = best2048Tile;
+    updateAllCoins();
+    saveGameData();
+}
+
+function show2048Message(txt) {
+    const el = document.getElementById('merge2048Message');
+    if (el) {
+        el.innerHTML = txt;
+        setTimeout(() => { if (el.innerHTML === txt) el.innerHTML = ''; }, 2500);
+    }
+}
+
+function checkMerge2048GameOver() {
     for (let i = 0; i < MERGE_GRID_SIZE; i++) {
         for (let j = 0; j < MERGE_GRID_SIZE; j++) {
             if (merge2048Board[i][j] === 0) return false;
-            if (j < MERGE_GRID_SIZE - 1 && merge2048Board[i][j] === merge2048Board[i][j+1]) return false;
-            if (i < MERGE_GRID_SIZE - 1 && merge2048Board[i][j] === merge2048Board[i+1][j]) return false;
+            if (j < MERGE_GRID_SIZE - 1 && merge2048Board[i][j] === merge2048Board[i][j + 1]) return false;
+            if (i < MERGE_GRID_SIZE - 1 && merge2048Board[i][j] === merge2048Board[i + 1][j]) return false;
         }
     }
     return true;
@@ -1366,129 +1494,32 @@ function closeMerge2048GameOver() {
     document.getElementById('merge2048GameOverModal').classList.remove('active');
 }
 
-function update2048Score() {
-    ['merge2048Score', 'merge2048Best', 'merge2048Coins'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.textContent = id === 'merge2048Score' ? merge2048Score : 
-                           id === 'merge2048Best' ? best2048Tile : coins;
-        }
-    });
-    updateAllCoins();
-    saveGameData();
-}
-
-function show2048Message(txt) {
-    const el = document.getElementById('merge2048Message');
-    if (el) {
-        el.innerHTML = txt;
-        setTimeout(() => { 
-            if (el.innerHTML === txt) el.innerHTML = ''; 
-        }, 2500);
-    }
-}
-
 function resetMerge2048() {
     initMerge2048();
 }
 
-// ===== 2048 POWER-UPS =====
-function undo2048Move() {
-    if (merge2048History.length === 0) {
-        show2048Message('❌ No moves to undo!');
-        return;
-    }
-    merge2048Board = merge2048History.pop();
-    renderMerge();
-    show2048Message('↩️ Move undone!');
-    playSound('click');
-}
-
-function removeLowestTile() {
-    let minVal = Infinity;
-    let minPos = null;
-    
-    for (let i = 0; i < MERGE_GRID_SIZE; i++) {
-        for (let j = 0; j < MERGE_GRID_SIZE; j++) {
-            if (merge2048Board[i][j] > 0 && merge2048Board[i][j] < minVal) {
-                minVal = merge2048Board[i][j];
-                minPos = { r: i, c: j };
-            }
-        }
-    }
-    
-    if (minPos) {
-        merge2048Board[minPos.r][minPos.c] = 0;
-        renderMerge();
-        show2048Message(`🗑️ Removed ${minVal}!`);
-        playSound('click');
-    }
-}
-
-function autoMergeTiles() {
-    let merged = false;
-    
-    for (let i = 0; i < MERGE_GRID_SIZE && !merged; i++) {
-        for (let j = 0; j < MERGE_GRID_SIZE - 1 && !merged; j++) {
-            if (merge2048Board[i][j] > 0 && merge2048Board[i][j] === merge2048Board[i][j+1]) {
-                merge2048Board[i][j] *= 2;
-                merge2048Score += merge2048Board[i][j];
-                coins += Math.floor(merge2048Board[i][j] / 8);
-                merge2048Board[i][j+1] = 0;
-                merged = true;
-            }
-        }
-    }
-    
-    if (merged) {
-        setTimeout(() => {
-            moveMerge('left');
-        }, 300);
-        renderMerge();
-        show2048Message('⚡ Auto merged!');
-        playSound('match');
-    } else {
-        show2048Message('❌ No tiles to merge!');
-    }
-}
-
-function clearSmallTiles() {
-    let cleared = 0;
-    
-    for (let i = 0; i < MERGE_GRID_SIZE; i++) {
-        for (let j = 0; j < MERGE_GRID_SIZE; j++) {
-            if (merge2048Board[i][j] > 0 && merge2048Board[i][j] < 8) {
-                merge2048Board[i][j] = 0;
-                cleared++;
-            }
-        }
-    }
-    
-    if (cleared > 0) {
-        renderMerge();
-        show2048Message(`🧹 Cleared ${cleared} small tiles!`);
-        playSound('click');
-    } else {
-        show2048Message('❌ No small tiles to clear!');
-    }
-}
-
-// ===== KEYBOARD SUPPORT FOR 2048 =====
-document.addEventListener('keydown', function(e) {
-    const container = document.getElementById('merge2048Container');
-    if (!container || container.style.display === 'none') return;
-    
-    if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
-        e.preventDefault();
-        moveMerge('up');
-    } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
-        e.preventDefault();
-        moveMerge('down');
-    } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
-        e.preventDefault();
-        moveMerge('left');
-    } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
-        e.preventDefault();
-        moveMerge('right');
+// Keyboard Support for 2048 - © 2025 DarkDetox
+document.addEventListener('keydown', (e) => {
+    if (document.getElementById('merge2048Container').style.display === 'block') {
+        if (e.key === 'ArrowLeft') moveMerge('left');
+        else if (e.key === 'ArrowRight') moveMerge('right');
+        else if (e.key === 'ArrowUp') moveMerge('up');
+        else if (e.key === 'ArrowDown') moveMerge('down');
     }
 });
+
+/*
+═══════════════════════════════════════════════════════════════════
+  END OF JAVASCRIPT - © 2025 DarkDetox - All Rights Reserved
+  Repository: https://github.com/DarkDetox/FruitPuzzle
+  This code is protected and may not be copied or redistributed.
+  
+  Author: DarkDetox
+  GitHub: https://github.com/DarkDetox
+  Email: DarkDetox05@gmail.com
+  Telegram: @DarkDexo
+  
+  ⚠️ WARNING: Unauthorized use, copying, or distribution of this
+  code is strictly prohibited and may result in legal action.
+═══════════════════════════════════════════════════════════════════
+*/
