@@ -1,13 +1,29 @@
 {
+    "_comment": "═══════════════════════════════════════════════════════════════════",
+    "_copyright": "© 2025 DarkDetox - All Rights Reserved",
+    "_author": "DarkDetox",
+    "_github": "https://github.com/DarkDetox",
+    "_repository": "https://github.com/DarkDetox/FruitPuzzle",
+    "_email": "DarkDetox05@gmail.com",
+    "_telegram": "@DarkDexo",
+    "_license": "All Rights Reserved",
+    "_warning": "Unauthorized copying, modification, or distribution is strictly prohibited.",
+    "_comment_end": "═══════════════════════════════════════════════════════════════════",
+    
     "name": "Fruit Match - Puzzle Game",
     "short_name": "FruitMatch",
-    "description": "Match-3 puzzle game with 2048 merge mode, power-ups inventory system, and 36 beautiful themes!",
+    "description": "Match-3 puzzle game with 2048 merge mode, power-ups inventory system, and 36 beautiful themes! Created by DarkDetox.",
     "start_url": "./index.html",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#667eea",
     "theme_color": "#667eea",
     "categories": ["games", "entertainment"],
+    "author": "DarkDetox",
+    "developer": {
+        "name": "DarkDetox",
+        "url": "https://github.com/DarkDetox"
+    },
     "icons": [
         {
             "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect fill='%23667eea' width='192' height='192' rx='40'/%3E%3Ctext x='96' y='130' font-size='100' text-anchor='middle' fill='white'%3E🍎%3C/text%3E%3C/svg%3E",
