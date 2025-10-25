@@ -2,7 +2,6 @@
 .gradle/
 build/
 
-# Local configuration file (sdk path, etc)
 local.properties
 
 # Log/OS Files
@@ -28,35 +27,24 @@ render.experimental.xml
 *.keystore
 
 # Google Services (e.g. APIs or Firebase)
-google-services.json
-
-# Android Profiling
+*.google-services.json
 *.hprof
-# Editor directories and files
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
 .DS_Store
 Thumbs.db
-
-# Optional assets folder (if you don't want to share custom sounds/images)
-# assets/
-
-# Screenshots/videos (add later when you have them)
-screenshots/*.psd
-screenshots/*.ai
+*assets/
+*.screenshots/*.psd
+*.screenshots/*.ai
 *.mp4
 *.mov
-
-# Testing files
 test/
 *.test.js
-
-# Build files (if you add build tools later)
-node_modules/
-dist/
-build/
+*.node_modules/
+*.dist/
+*.build/
 *.log
 
 # OS generated files
