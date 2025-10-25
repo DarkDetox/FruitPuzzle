@@ -1,3 +1,24 @@
+/*
+╔══════════════════════════════════════════════════════════════════╗
+║                    🍎 FRUIT MATCH PUZZLE GAME                    ║
+║                         STYLESHEET                                ║
+║                                                                  ║
+║  Author: DarkDetox                                              ║
+║  GitHub: https://github.com/DarkDetox                           ║
+║  Repository: https://github.com/DarkDetox/FruitPuzzle          ║
+║  Email: DarkDetox05@gmail.com                                   ║
+║  Telegram: @DarkDexo                                            ║
+║                                                                  ║
+║  © 2025 DarkDetox. All Rights Reserved.                         ║
+║                                                                  ║
+║  This code is proprietary and confidential.                     ║
+║  Unauthorized copying, modification, distribution, or use       ║
+║  of this software, via any medium, is strictly prohibited.      ║
+║                                                                  ║
+║  Licensed under: All Rights Reserved                            ║
+╚══════════════════════════════════════════════════════════════════╝
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -21,6 +42,8 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
+/* © 2025 DarkDetox - All Rights Reserved */
+
 html, body {
     overflow: hidden;
     height: 100%;
@@ -40,6 +63,7 @@ body {
 }
 
 /* ===== REMOVE BLUE HIGHLIGHT ===== */
+/* © 2025 DarkDetox */
 *:focus {
     outline: none !important;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
@@ -50,6 +74,7 @@ body {
 }
 
 /* ===== LOADING SCREEN ===== */
+/* Created by DarkDetox */
 .loading-screen {
     position: fixed;
     top: 0;
@@ -127,6 +152,7 @@ body {
 }
 
 /* ===== THEME COLORS - SOLID BLACK UI FOR ALL (EXCEPT DARK) ===== */
+/* Designed by DarkDetox - github.com/DarkDetox */
 body.theme-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
 body.theme-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
 body.theme-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
@@ -164,6 +190,7 @@ body.theme-34 { background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); }
 body.theme-35 { background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%); }
 
 /* DARK AMOLED THEME - WHITE UI */
+/* © DarkDetox */
 body.theme-dark { 
     background: #000000; 
     --text-color: #ffffff; 
@@ -175,6 +202,7 @@ body.theme-dark {
 }
 
 /* ===== GLASS MORPHISM WITH SOLID BLACK UI ===== */
+/* Designed by DarkDetox */
 .glass-container {
     background: var(--ui-bg);
     backdrop-filter: blur(60px) saturate(200%);
@@ -218,6 +246,7 @@ body.theme-dark {
 }
 
 /* ===== BUTTONS WITH GLOW EFFECT ===== */
+/* © 2025 DarkDetox */
 .icon-btn {
     background: var(--ui-bg);
     backdrop-filter: blur(30px);
@@ -335,6 +364,7 @@ body.theme-dark {
 }
 
 /* ===== RIPPLE EFFECT (REPLACES BLUE HIGHLIGHT) ===== */
+/* Created by DarkDetox - github.com/DarkDetox/FruitPuzzle */
 .ripple {
     position: relative;
     overflow: hidden;
@@ -357,6 +387,7 @@ body.theme-dark {
 }
 
 /* ===== MODE SELECTION (SCROLLABLE) ===== */
+/* © DarkDetox 2025 */
 .mode-selection {
     width: 100%;
     max-width: 650px;
@@ -516,6 +547,7 @@ body.theme-dark {
 }
 
 /* ===== GAME CONTAINER (NO SCROLL!) ===== */
+/* Developed by DarkDetox */
 .game-container {
     max-width: 540px;
     max-height: 100vh;
@@ -590,6 +622,7 @@ body.theme-dark {
 }
 
 /* ===== GAME BOARD (NO SCROLL, FIXED SIZE) ===== */
+/* © 2025 DarkDetox - FruitPuzzle */
 .game-board {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -647,6 +680,7 @@ body.theme-dark {
 }
 
 /* ===== 2048 BOARD (NO SCROLL, FIXED SIZE) ===== */
+/* Created by DarkDetox */
 .merge-board {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -688,6 +722,7 @@ body.theme-dark {
     font-weight: 700;
 }
 
+/* © DarkDetox - All Rights Reserved */
 .merge-tile[data-value="2"] { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
 .merge-tile[data-value="4"] { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
 .merge-tile[data-value="8"] { background: linear-gradient(135deg, #ff9a76, #ffecd2); }
@@ -729,6 +764,7 @@ body.theme-dark {
 }
 
 /* ===== MODALS ===== */
+/* Designed by DarkDetox */
 .modal {
     display: none;
     position: fixed;
@@ -872,6 +908,7 @@ body.theme-dark {
 }
 
 /* ===== THEME GRID (SCROLLABLE) ===== */
+/* © DarkDetox */
 .theme-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -904,6 +941,7 @@ body.theme-dark {
 }
 
 /* ===== POWER-UP SHOP (SCROLLABLE) ===== */
+/* Created by DarkDetox - github.com/DarkDetox */
 .powerup-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -952,6 +990,7 @@ body.theme-dark {
 }
 
 /* ===== INVENTORY GRID ===== */
+/* © 2025 DarkDetox */
 .inventory-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -1000,6 +1039,7 @@ body.theme-dark {
 }
 
 /* ===== RESPONSIVE ===== */
+/* Developed by DarkDetox */
 @media (max-width: 480px) {
     .tile {
         font-size: 32px;
@@ -1011,3 +1051,16 @@ body.theme-dark {
         grid-template-columns: 1fr;
     }
 }
+
+/*
+═══════════════════════════════════════════════════════════════════
+  END OF STYLESHEET - © 2025 DarkDetox - All Rights Reserved
+  Repository: https://github.com/DarkDetox/FruitPuzzle
+  This code is protected and may not be copied or redistributed.
+  
+  Author: DarkDetox
+  GitHub: https://github.com/DarkDetox
+  Email: DarkDetox05@gmail.com
+  Telegram: @DarkDexo
+═══════════════════════════════════════════════════════════════════
+*/
